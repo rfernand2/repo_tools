@@ -1,11 +1,10 @@
-github_dir: {windows: d:/github, linux: ~/github}
-
 repos:
 
   repo_tools:
     url: https://github.com/rfernand2/repo_tools
     desc: "tools for managing repos"
     account: rfernand2
+    conda: tools
 
   tpx:
     url: https://github.com/MSRDL/TPX-Transformer

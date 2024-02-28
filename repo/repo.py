@@ -15,19 +15,23 @@ class RepoMgr:
             # sort by key
             self.repos = dict(sorted(self.repos.items()))
 
-            if "nt" in os.name:
-                self.github_dir = data["github_dir"]["windows"]
-            else:
-                self.github_dir = data["github_dir"]["linux"]
+            self.github_dir = os.path.expandvars("$HOME") + "/github" 
 
         self.set_commands([])
 
-    def print_items(self, items):
-        print("\n  {:20}\t{:>16}\t{:60}\t{:}".format("NAME", "SIZE", "URL", "DESCRIPTION"))
+    def print_items(self, items, show_sizes=False):
+
+        if show_sizes:
+            print("\n  {:20}\t{:>16}\t{:>16}\t{:60}\t{:}".format("NAME", "REPO SIZE", "CONDA SIZE", "URL", "DESCRIPTION"))
+        else:
+            print("\n  {:20}\t{:60}\t{:}".format("NAME", "URL", "DESCRIPTION"))
 
         for rd in items:
             installed = "yes" if rd["installed"] else "no"
-            print("  {:20}\t{:16,}\t{:60}\t{:}".format(rd["name"], rd["size"], rd["url"], rd["desc"]))
+            if show_sizes:
+                print("  {:20}\t{:16,}\t{:16,}\t{:60}\t{:}".format(rd["name"], rd["file_size"], rd["conda_size"], rd["url"], rd["desc"]))
+            else:
+                print("  {:20}\t{:60}\t{:}".format(rd["name"], rd["url"], rd["desc"]))
 
     def update_entry(self, repo, update_size=False):
         '''
@@ -38,21 +42,28 @@ class RepoMgr:
         '''
         rd = self.repos[repo]
         url = rd["url"]
-        dir_name = rd["dir"] if "dir" in rd else os.path.basename(url)
+        simple_dir = rd["dir"] if "dir" in rd else os.path.basename(url)
         conda = rd["conda"] if "conda" in rd else repo
 
-        repo_dir = self.github_dir + "/" + dir_name
+        repo_dir = self.github_dir + "/" + simple_dir
 
         rd["name"] = repo
         rd["installed"] = os.path.exists(repo_dir)
-        rd["dir"] = repo_dir
+        rd["dir"] = simple_dir
         rd["conda"] = conda
 
         if update_size:
-            size = self.get_dir_size(repo_dir)
-            rd["size"] = size
+            conda_path = os.path.dirname(os.path.expandvars("$CONDA_PREFIX")) + "/" + conda
+            conda_path = os.path.abspath(conda_path)
+
+            file_size = self.get_dir_size(repo_dir)
+            conda_size = self.get_dir_size(conda_path)
+
+            rd["file_size"] = file_size
+            rd["conda_size"] = conda_size
         else:
-            rd["size"] = None
+            rd["file_size"] = None
+            rd["conda_size"] = None
 
     def get_dir_size(self, dir_name):
         size = 0
@@ -65,10 +76,10 @@ class RepoMgr:
 
         return size
 
-    def list_repos(self, filter):
+    def list_repos(self, filter, show_sizes=False):
         print_items = []
         for repo, rd in self.repos.items():
-            self.update_entry(repo, update_size=True)
+            self.update_entry(repo, update_size=False)
 
             show = True
             if filter:
@@ -77,9 +88,10 @@ class RepoMgr:
                     show = False
 
             if show:
+                self.update_entry(repo, update_size=show_sizes)
                 print_items.append(rd)
 
-        self.print_items(print_items)
+        self.print_items(print_items, show_sizes)
 
     def go(self, cmd):
         if cmd not in self.repos:
@@ -91,7 +103,7 @@ class RepoMgr:
         conda = repo["conda"]
 
         url = repo["url"]
-        repo_dir = repo["dir"]
+        repo_dir = self.github_dir + "/" + repo["dir"]
 
         # create a batch file to affect conda environment
         cmds = []
@@ -108,7 +120,7 @@ class RepoMgr:
         self.update_entry(cmd)
         repo = self.repos[cmd]
         url = repo["url"]
-        repo_dir = repo["dir"]
+        repo_dir = self.github_dir + "/" + repo["dir"]
         size = repo["size"]
         conda = repo["conda"]
 
@@ -141,24 +153,34 @@ class RepoMgr:
                 f.write(cmd + "\n")
 
     def current(self):
-        cwd = os.getcwd().lower()
-        ghd = os.path.abspath(self.github_dir).lower()
+        cwd = os.path.abspath(os.getcwd())
+        ghd = os.path.abspath(self.github_dir)
 
-        if cwd.startswith(ghd):
-            repo = cwd[len(ghd)+1:].lower()
-            if "\\" in repo or "/" in repo:
-                repo = os.path.dirname(repo)
+        # print("cwd: {}, ghd: {}".format(cwd, ghd))
+        # print(self.repos)
 
-            self.update_entry(repo, update_size=True)
+        found = False
 
-            rd = self.repos[repo]
-            self.print_items([rd])
+        if cwd.lower().startswith(ghd.lower()):
+            repo_name = cwd[len(ghd)+1:]
+            if "\\" in repo_name or "/" in repo_name:
+                repo_name = os.path.dirname(repo_name)
+            
+            #repo = os.path.abspath(ghd + "/" + repo)
+            #print(repo)
 
-        else:
-            print("not in a repo")
+            for key, entry in self.repos.items():
+                self.update_entry(key, update_size=False)
+                #print(entry["dir"])
 
+                if repo_name ==entry["dir"]:
+                    self.update_entry(key, update_size=True)
+                    self.print_items([entry], show_sizes=True)
+                    found = True
+                    break
 
-        #os.system("git rev-parse --show-toplevel")
+        if not found:
+            print("not currently in a known repo")
 
     def help(self):
         print("usage:")
@@ -166,6 +188,7 @@ class RepoMgr:
         print("  repo go <name>        (change to the specified repo)")
         print("  repo install <name>   (install the specified repo)")
         print("  repo list [filter]    (show info about all/matching repos)")
+        print("  repo sizes [filter]   (show sizes of all/matching repos)")
         print("  repo help             (show this help information)")
         print("  repo <name>           (shortcut for go <name>)")
 
@@ -180,6 +203,9 @@ def command(cmd, cmd2):
     elif cmd == "list":
         repo_mgr.list_repos(cmd2)
 
+    elif cmd == "sizes":
+        repo_mgr.list_repos(cmd2, True)
+
     elif cmd == "install":
         repo_mgr.install_repo(cmd2)
 
@@ -192,6 +218,8 @@ def command(cmd, cmd2):
         repo_mgr.go(cmd)
 
 if __name__ == "__main__":
+    #print(sys.argv)
+
     cmd = sys.argv[1] if len(sys.argv) > 1 else ""
     cmd2 = sys.argv[2] if len(sys.argv) > 2 else ""
 

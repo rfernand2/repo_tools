@@ -1,0 +1,136 @@
+tpx:
+  url: https://github.com/MSRDL/TPX-Transformer
+  desc: "main training and model repo for TP-related projects"
+  account: MSRDL
+
+exper:
+  url: https://github.com/MSRDL/ExperimentTools/tree/dilbert
+  desc: "source code for XT"
+  account: MSRDL
+
+tpd:
+  url: https://github.com/MSRDL/TPX-Datasets
+  desc: "imported and custom datasets for TP-related projects"
+  account: MSRDL
+
+xlm: 
+  url: https://github.com/MSRDL/xlm
+  desc: "repo for exploring LLM architectures and how they affect in-context learning"
+  account: MSRDL
+
+schat:
+  url: https://github.com/rfernand2/SchoolChat
+  desc: "source code for SchoolChat: a chabot for students that logs their interactions for the teacher to review"
+  account: rfernand2
+
+nnc:
+  url: https://github.com/rfernand2/NeuralNetCepts
+  desc: "Used to build posts for @NeuralNetCepts account on X/Twitter"
+  account: rfernand2
+  
+bookrag:
+  url: https://github.com/rfernand3/dlbookrag
+  desc: "This is a RAG service for the 'Deep Learning: Foundations and Concepts' book GPTs"
+  account: rfernand3
+
+mamba:
+  url: https://github.com/MSRDL/mamba
+  desc: "Experiments with Mamba model"
+  account: MSRDL
+
+critthink:
+  url: https://github.com/MSRDL/CritThink
+  desc: "Explores new datasets to increase critical thinking skills thru math & physics word problems."
+  account: MSRDL
+
+moab:
+  url: https://github.com/rfernand3/moab
+  desc: "my copy of the MOAB repo - to train simulator and robot for bounding ping pong ball on a plate"
+  account: rfernand3
+
+flask:
+  url: https://github.com/rfernand2/flask_m365_login
+  desc: "Flask app to login to Microsoft 365"
+  account: rfernand2
+
+hello_flask:
+  url: https://github.com/rfernand2/hello_flask
+  desc: "my copy of Hello World Flask app"
+  account: rfernand2
+
+tools:
+  url: https://github.com/rfernand2/repo_tools
+  desc: "tools for managing repos"
+  account: rfernand2
+
+rr:
+  url: https://github.com/rfernand2/rebanes_ruminations
+  desc: "tools for extracting pages and images from Rebane's Ruminations website"
+  account: rfernand2
+
+recall_faster:
+  url: https://github.com/rfernand2/RecallFaster
+  desc: "tool to help users recall information faster"
+
+soca:
+  url: https://github.com/rfernand2/soca
+  desc: "explore models for Society of Cognitive Agents (Minsky's Society of Mind)"
+  account: rfernand2
+
+tiny_cars:
+  url: https://github.com/rfernand2/tinycars
+  desc: "High speed simulator for training self-driving car agents"
+  account: rfernand2
+
+grounded:
+  url: https://github.com/rfernand2/Grounded
+  desc: "Project to study how ground language learning in perception and actions can help in generalization and sample complexity"
+  account: rfernand2
+
+icecaps:
+  url: https://github.com/MSRDL/tpx_icecaps
+  desc: "our modified copy of Microsoft icecaps repo"
+  account: MSRDL
+
+tinystories:
+  url: https://github.com/MSRDL/tinystories
+  desc: "our modified copy of Microsoft tiny stories repo"
+  account: MSRDL
+
+dtm2:
+  url: https://github.com/MSRDL/dtm2
+  desc: "Discrete Tree Machine repo (Paul Soulos)"
+  account: MSRDL
+
+tree2tree:
+  url: https://github.com/MSRDL/tree2tree
+  desc: "Our modified copy of the chen et al. tree2tree repo"
+  account: MSRDL
+
+gpc_whiteboard:
+  url: https://github.com/MSRDL/gpc_whiteboard
+  desc: "Development of a desktop general-purpose copilot, starting with a whiteboard for visual learning"
+  account: MSRDL
+
+xt_grok:
+  url: https://github.com/MSRDL/XT-Grok
+  desc: "Web-based UX for XT-managed ML experiments"
+  account: MSRDL
+
+dtrain:
+  url: https://github.com/MSRDL/DTrain
+  desc: "Exploration of distributed training methods for TPX"
+  account: MSRDL
+
+tpx_2019:
+  url: https://github.com/MSRDL/TPX-2019-Transformer
+  desc: "Extension of TP-Transformer work started by Imanol, summer 2019"
+  account: MSRDL
+
+neural_math:
+  url: https://github.com/MSRDL/NeuralMath
+  desc: "Exploring: - how DL models can learn reliable and explainable models of math - if DL models can be biased more towards symbolic (vs. numeric) learning"
+
+xt_gen:
+  url: https://github.com/MSRDL/XTGen
+  desc: "Command line tool for generating ML training apps with research data sets and models"

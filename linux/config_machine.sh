@@ -1,7 +1,7 @@
-# add things to path
-# echo 'export PATH=$PATH:~/github/repo_tools' >> ~/.bashrc
+# config our linux machine for repo_tools style of development
 
-# add commands
-echo "alias tools='cd ~/github/repo_tools'" >> ~/.bashrc
-echo "alias gh='cd ~/github'" >> ~/.bashrc
-echo "repo() { python ~/github/repo_tools/repo/repo.py \"\$@\"; . ~/github/repo_commands.sh }" >> ~/.bashrc
+# apply creds to box
+$CONDA3_DIR/python $GITHUB_DIR/repo_tools/apply_creds_linux.python
+
+# TODO: install minicode
+# TODO: install VSCODE (when we have a UI)

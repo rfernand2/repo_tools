@@ -138,20 +138,21 @@ class RepoMgr:
             return
 
         if not os.path.exists(repo_dir):
-            os.system("git clone " + url + " " + repo_dir)
+            clone_cmd = "git clone " + url + " " + repo_dir
+            print(clone_cmd)
 
-            fn_create_conda = "{}/create_conda.bat".format(repo_dir)
+            os.system(clone_cmd)
+
+            if "nt" in os.name:
+                fn_create_conda = "{}/create_conda.bat".format(repo_dir)
+            else:
+                fn_create_conda = "sourcer {}/create_conda.sh".format(repo_dir)
 
             cmds = []
             cmds.append("cd /d " + repo_dir)
             cmds.append(fn_create_conda)
             cmds.append("repo")    # echo newly installed repo
-            # cmds.append("call conda deactivate")
-            # cmds.append("call conda activate " + conda)
             self.set_commands(cmds)
-
-        # else:
-        #     os.system("git -C " + repo_dir + " pull")
 
     def set_commands(self, cmds):
         ext = "bat" if "nt" in os.name else "sh"

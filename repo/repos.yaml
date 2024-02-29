@@ -5,7 +5,7 @@ repos:
     desc: "tools for managing repos"
     account: rfernand2
     conda: tools
-
+    
   tpx:
     url: https://github.com/MSRDL/TPX-Transformer
     desc: "main training and model repo for TP-related projects"
@@ -67,11 +67,6 @@ repos:
   hello_flask:
     url: https://github.com/rfernand2/hello_flask
     desc: "my copy of Hello World Flask app"
-    account: rfernand2
-
-  tools:
-    url: https://github.com/rfernand2/repo_tools
-    desc: "tools for managing repos"
     account: rfernand2
 
   rr:

@@ -53,7 +53,11 @@ class RepoMgr:
         rd["conda"] = conda
 
         if update_size:
-            conda_path = os.path.dirname(os.path.expandvars("$CONDA_PREFIX")) + "/" + conda
+            if "nt" in os.name:
+                conda_path = os.path.dirname(os.path.expandvars("$CONDA_PREFIX")) + "/" + conda
+            else:
+                conda_path = os.path.expandvars("$CONDA_PREFIX") + "/envs/" + conda
+            #print(conda_path)
             conda_path = os.path.abspath(conda_path)
 
             file_size = self.get_dir_size(repo_dir)
@@ -145,9 +149,11 @@ class RepoMgr:
         #     os.system("git -C " + repo_dir + " pull")
 
     def set_commands(self, cmds):
-        fn = "{}/repo_commands.bat".format(self.github_dir)
+        ext = "bat" if "nt" in os.name else "sh"
+        fn = "{}/repo_commands.{}".format(self.github_dir, ext)
         with open(fn, "w") as f:
-            f.write("@echo off\n")
+            if ext == "bat":
+                f.write("@echo off\n")
 
             for cmd in cmds:
                 f.write(cmd + "\n")

@@ -149,10 +149,13 @@ class RepoMgr:
             if "nt" in os.name:
                 fn_create_conda = "{}/create_conda.bat".format(repo_dir)
             else:
-                fn_create_conda = "sourcer {}/create_conda.sh".format(repo_dir)
+                fn_create_conda = "source {}/create_conda.sh".format(repo_dir)
 
             cmds = []
-            cmds.append("cd /d " + repo_dir)
+            if "nt" in os.name:
+                cmds.append("cd /d " + repo_dir)
+            else:
+                cmds.append("cd " + repo_dir)
             cmds.append(fn_create_conda)
             cmds.append("repo")    # echo newly installed repo
             self.set_commands(cmds)

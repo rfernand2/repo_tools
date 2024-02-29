@@ -15,7 +15,7 @@ repos:
     url: https://github.com/MSRDL/ExperimentTools
     desc: "source code for XT"
     account: MSRDL
-    branch: xt_dilbert
+    branch: dilbert
     dir: xt_dilbert
 
   tpd:

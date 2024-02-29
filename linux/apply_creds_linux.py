@@ -4,7 +4,9 @@ import json
 import yaml
 
 # read creds
-fn = "~/rlf/test_data.yaml"
+home = os.path.expanduser("~")
+
+fn = home + "/rlf/test_data.yaml"
 with open(fn, "rt", encoding="utf-8") as f:
     data = yaml.safe_load(f)
 
@@ -16,13 +18,13 @@ for name in ["wandb_api_key", "tpx_sql_pw", "openai_api_key"]:
     cmd_text += cmd + "\n"
 
 # append this to .bashrc
-fn = "~/.bashrc"
+fn = home + "/.bashrc"
 with open(fn, "a") as f:
     f.write(cmd_text)
 
 # write azure store files
 for store in data["azure_stores"]:
-    fn = "~/.xt/stores/{}/keys.bin".format(store)
+    fn = home + "/.xt/stores/{}/keys.bin".format(store)
     # create dir, if needed
     os.makedirs(os.path.dirname(fn), exist_ok=True)
 
@@ -32,8 +34,8 @@ for store in data["azure_stores"]:
         f.write(jtext)
 
 # write .git-credentials
-fn = "~/.git-credentials"
+fn = home + "/.git-credentials"
 gc = data["git_credentials"]["value"]
 with open(fn, "wt") as f:
     f.write(gc)
-    
+

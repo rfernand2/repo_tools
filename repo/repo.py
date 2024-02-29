@@ -111,9 +111,14 @@ class RepoMgr:
 
         # create a batch file to affect conda environment
         cmds = []
-        cmds.append("call conda deactivate")
-        cmds.append("call conda activate " + conda)
-        cmds.append("cd /d " + repo_dir)
+        call = "call"  if "nt" in os.name else ""
+        cmds.append("{}conda deactivate".format(call))
+        cmds.append("{}conda activate {}".format(call, conda))
+
+        if "nt" in os.name:
+            cmds.append("cd /d " + repo_dir)
+        else:
+            cmds.append("cd " + repo_dir)
         self.set_commands(cmds)
 
     def install_repo(self, cmd):
@@ -125,7 +130,7 @@ class RepoMgr:
         repo = self.repos[cmd]
         url = repo["url"]
         repo_dir = self.github_dir + "/" + repo["dir"]
-        size = repo["size"]
+        size = repo["file_size"]
         conda = repo["conda"]
 
         if size:

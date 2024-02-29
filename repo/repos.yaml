@@ -12,9 +12,10 @@ repos:
     account: MSRDL
 
   exper:
-    url: https://github.com/MSRDL/ExperimentTools/tree/dilbert
+    url: https://github.com/MSRDL/ExperimentTools
     desc: "source code for XT"
     account: MSRDL
+    branch: xt_dilbert
     dir: xt_dilbert
 
   tpd:

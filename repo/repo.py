@@ -135,6 +135,7 @@ class RepoMgr:
         repo_dir = self.github_dir + "/" + repo["dir"]
         size = repo["file_size"]
         conda = repo["conda"]
+        branch = repo["branch"] if "branch" in repo else None
 
         if size:
             print("repo {} is already installed".format(cmd))
@@ -142,6 +143,9 @@ class RepoMgr:
 
         if not os.path.exists(repo_dir):
             clone_cmd = "git clone " + url + " " + repo_dir
+            if branch:
+                clone_cmd += " --branch " + branch
+                
             print(clone_cmd)
 
             os.system(clone_cmd)

@@ -35,7 +35,7 @@ for store in data["azure_stores"]:
 
 # write .git-credentials
 fn = home + "/.git-credentials"
-gc = data["git_credentials"]["value"]
+gc = data["git-credentials"]["value"]
 with open(fn, "wt") as f:
     f.write(gc)
 

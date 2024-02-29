@@ -105,11 +105,10 @@ class RepoMgr:
             print("repo {} not found".format(cmd))
             return
 
-        self.update_entry(cmd)
+        self.update_entry(cmd, update_size=False)
         repo = self.repos[cmd]
         conda = repo["conda"]
 
-        url = repo["url"]
         repo_dir = self.github_dir + "/" + repo["dir"]
 
         # create a batch file to affect conda environment
@@ -145,7 +144,7 @@ class RepoMgr:
             clone_cmd = "git clone " + url + " " + repo_dir
             if branch:
                 clone_cmd += " --branch " + branch
-                
+
             print(clone_cmd)
 
             os.system(clone_cmd)

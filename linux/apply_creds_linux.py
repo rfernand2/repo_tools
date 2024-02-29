@@ -52,4 +52,4 @@ with open(fn, "wt") as f:
         password = {pw}
 [credential]
         helper = store'''
-f.write(text)
+    f.write(text)

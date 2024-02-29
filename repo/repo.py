@@ -53,10 +53,7 @@ class RepoMgr:
         rd["conda"] = conda
 
         if update_size:
-            if "nt" in os.name:
-                conda_path = os.path.dirname(os.path.expandvars("$CONDA_PREFIX")) + "/" + conda
-            else:
-                conda_path = os.path.expandvars("$CONDA_PREFIX") + "/envs/" + conda
+            conda_path = os.path.dirname(os.path.expandvars("$CONDA3_DIR")) + "/envs/" + conda
             #print(conda_path)
             conda_path = os.path.abspath(conda_path)
 
@@ -111,7 +108,7 @@ class RepoMgr:
 
         # create a batch file to affect conda environment
         cmds = []
-        call = "call"  if "nt" in os.name else ""
+        call = "call " if "nt" in os.name else ""
         cmds.append("{}conda deactivate".format(call))
         cmds.append("{}conda activate {}".format(call, conda))
 
@@ -236,4 +233,4 @@ if __name__ == "__main__":
     cmd2 = sys.argv[2] if len(sys.argv) > 2 else ""
 
     command(cmd, cmd2)
-    #command("", "")
+    #command("install", "soca")

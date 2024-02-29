@@ -11,7 +11,7 @@ with open(fn, "rt", encoding="utf-8") as f:
     data = yaml.safe_load(f)
 
 # write permanent env vars
-cmd_text = "written by apply_creds_linux.py\n\n"
+cmd_text = "# written by apply_creds_linux.py\n"
 for name in ["wandb_api_key", "tpx_sql_pw", "openai_api_key"]:
     value = data[name]["value"]
     cmd = f"export {name.upper()}={value}"
@@ -39,3 +39,17 @@ gc = data["git-credentials"]["value"]
 with open(fn, "wt") as f:
     f.write(gc)
 
+# write .gitconfig
+email = data["git-credentials"]["email"]
+name = data["git-credentials"]["name"]
+pw = data["git-credentials"]["pw"]
+
+fn = home + "/.gitconfig"
+with open(fn, "wt") as f:
+    text = '''[user]
+        email = {email}
+        name = {name}
+        password = {pw}
+[credential]
+        helper = store'''
+f.write(text)

@@ -31,3 +31,9 @@ for store in data["azure_stores"]:
         jtext = json.dumps(store_dict, indent=4)
         f.write(jtext)
 
+# write .git-credentials
+fn = "~/.git-credentials"
+gc = data["git_credentials"]["value"]
+with open(fn, "wt") as f:
+    f.write(gc)
+    

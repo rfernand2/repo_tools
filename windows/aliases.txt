@@ -1,0 +1,5 @@
+gh=cd /d %GITHUB_DIR%
+tools=cd /d %GITHUB_DIR%\repo_tools
+n=notepad $*
+push=git add . && git commit -m %1 && git push
+repo=%CONDA3_DIR%/python %GITHUB_DIR%\repo_tools\repo\repo.py %* && call %GITHUB_DIR%\repo_commands.bat

@@ -3,6 +3,12 @@ import os
 import sys
 import yaml
 
+'''
+This tool depends on the following environment variables:
+    - GITHUB_DIR            (the parent directory of all the github repos )
+    - CONDA3_DIR            (the ../anaconda3 directory)
+'''
+
 class RepoMgr:
     def __init__(self, fn):
         dir_name = os.path.dirname(__file__)
@@ -15,7 +21,7 @@ class RepoMgr:
             # sort by key
             self.repos = dict(sorted(self.repos.items()))
 
-            self.github_dir = os.path.expandvars("$HOME") + "/github" 
+            self.github_dir = os.path.expandvars("$GITHUB_DIR")
 
         self.set_commands([])
 

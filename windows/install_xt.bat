@@ -8,4 +8,4 @@ call conda activate xt_shared
 call pip install xtlib==0.0.326
 call conda deactivate
 
-REM rember to add the path of XT to the PATH environment variable (as last path entry)
+REM add the XT directory to the PATH (as last path entry)

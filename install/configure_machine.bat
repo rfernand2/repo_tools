@@ -13,5 +13,8 @@ mkdir %HOME%\.models
 mkdir %HOME%\.data
 
 REM install VSCODE
+curl -L https://code.visualstudio.com/docs/?dv=win64user -o %TEMP%\vscode.exe
+%TEMP%\vscode.exe
+
 REM install VSCODE extensions
 

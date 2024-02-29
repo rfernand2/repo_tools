@@ -17,7 +17,6 @@ On a new or partially configured machine:
     2. set various environment variables:
         a. add repo_tools directory to PATH
         b. add HOME to point to base of github, .models, .data subdirs
-        c. add TOOLS_PYTHON to point to the location of your tools python interpreter
 
     3. install conda, vscode, etc:
         a. configure_machine.bat

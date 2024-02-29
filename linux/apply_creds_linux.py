@@ -16,6 +16,7 @@ for name in ["wandb_api_key", "tpx_sql_pw", "openai_api_key"]:
     value = data[name]["value"]
     cmd = f"export {name.upper()}={value}"
     cmd_text += cmd + "\n"
+cmd_text += "\n"
 
 # append this to .bashrc
 fn = home + "/.bashrc"

@@ -2,11 +2,12 @@
 export GITHUB_DIR=~/github
 export CONDA3_DIR=~/miniconda3
 
+# use aliases when we don't have args to pass
 alias gh='cd $GITHUB_DIR'
 alias tools='cd $GITHUB_DIR/repo_tools'
 
+# use functions when args are needed
 push() { git add .; git commit -m %1; git push; }
 n()    { nano %1; }
 repo() { python3 ~/github/repo_tools/repo/repo.py "$@"; . ~/github/repo_commands.sh; }
-
-
+xt()   { %CONDA3_DIR%\envs\xt_shared\Scripts\xt.exe "$@"; }

@@ -5,6 +5,9 @@ export CONDA3_DIR=~/miniconda3
 # use aliases when we don't have args to pass
 alias gh='cd $GITHUB_DIR'
 alias tools='cd $GITHUB_DIR/repo_tools'
+alias .data=cd ~/.data
+alias .models=cd ~/.models
+alias .xt=cd ~/.xt
 
 # use functions when args are needed
 push() { git add .; git commit -m %1; git push; }

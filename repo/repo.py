@@ -119,8 +119,14 @@ class RepoMgr:
 
         if "nt" in os.name:
             cmds.append("cd /d " + repo_dir)
+            if "env_vars" in repo:
+                for var, value in repo["env_vars"].items():
+                    value = os.path.expandvars(value)
+                    cmds.append("set " + var + "=" + value)
         else:
             cmds.append("cd " + repo_dir)
+
+        
         self.set_commands(cmds)
 
     def install_repo(self, cmd):

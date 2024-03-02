@@ -10,6 +10,7 @@ repos:
     url: https://github.com/MSRDL/TPX-Transformer
     desc: "main training and model repo for TP-related projects"
     account: MSRDL
+    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/TPX-Transformer/xt_config.yaml"}
 
   exper:
     url: https://github.com/MSRDL/ExperimentTools

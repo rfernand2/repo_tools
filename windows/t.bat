@@ -20,19 +20,3 @@ if not exist %CONDA3_TMP%\ (
 REM set CONDA3_DIR
 setx CONDA3_DIR %CONDA3_TMP%
 
-REM add ALIASES macro file (doskey) to start up commands
-reg add "HKCU\Software\Microsoft\Command Processor" /v Autorun /d "doskey /macrofile=\"d:\github\repo_tools\windows\aliases.txt\"" /f
-
-REM create github, .models, .data directories
-mkdir %GITHUB_DIR%
-mkdir %HOME%\.models
-mkdir %HOME%\.data
-
-REM install git, if needed
-REM config git for our credentials
-
-REM install VSCODE
-REM curl -L https://code.visualstudio.com/docs/?dv=win64user -o %TEMP%\vscode.exe
-REM %TEMP%\vscode.exe
-
-REM install VSCODE extensions

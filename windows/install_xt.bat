@@ -8,3 +8,6 @@ call conda activate xt_shared
 call pip install xtlib==0.0.326
 call conda deactivate
 
+REM copy xt.bat to conda3 scripts dir
+REMO note: xt cannot use DOSKEY since it needs to work from batch files like upload_data.bat
+call copy %GITHUB_DIR%\repo_tools\windows\xt.bat %CONDA3_DIR%\scripts

@@ -1,6 +1,7 @@
 REM define permanent environment variables
 setx HOME d:      
 setx GITHUB_DIR d:\github
+setx PYTHONPATH d:\github\xt_dilbert
 
 REM try to find existing conda3 installation
 set CONDA3_TMP=C:\Users\%USERNAME%\AppData\Local\anaconda3

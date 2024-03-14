@@ -5,7 +5,17 @@ repos:
     desc: "tools for managing repos"
     account: rfernand2
     conda: tools
-    
+
+  ebana:
+    url: https://github.com/mawatfa/ebana
+    desc: official repo of EBANA for designing analog NNs
+    conda: ebana
+
+  rbm:
+    url: https://github.com/echen/restricted-boltzmann-machines
+    desc: "simple restricted-boltzmann machine framework"
+    conda: tpx
+
   tpx:
     url: https://github.com/MSRDL/TPX-Transformer
     desc: "main training and model repo for TP-related projects"

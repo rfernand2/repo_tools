@@ -166,7 +166,7 @@ class RepoMgr:
             else:
                 cmds.append("cd " + repo_dir)
             cmds.append(fn_create_conda)
-            cmds.append("repo")    # echo newly installed repo
+            cmds.append("rt")    # echo newly installed repo
             self.set_commands(cmds)
 
     def set_commands(self, cmds):

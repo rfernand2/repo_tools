@@ -6,6 +6,16 @@ repos:
     account: rfernand2
     conda: tools
 
+  nupic:
+    url: https://github.com/numenta/nupic.research.core
+    desc: Numenta's repo for HTM
+
+  htm:
+    url: https://github.com/research-at-redmond/neuro-dendritic-network
+    desc: our local HTM code
+    conda: htm
+    branch: htm_exploration
+
   ebana:
     url: https://github.com/mawatfa/ebana
     desc: official repo of EBANA for designing analog NNs

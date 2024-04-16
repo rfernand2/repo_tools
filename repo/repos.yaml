@@ -9,6 +9,7 @@ repos:
   nupic:
     url: https://github.com/numenta/nupic.research.core
     desc: Numenta's repo for HTM
+    conda: htm 
 
   htm:
     url: https://github.com/research-at-redmond/neuro-dendritic-network

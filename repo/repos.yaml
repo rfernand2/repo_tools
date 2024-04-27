@@ -6,9 +6,19 @@ repos:
     account: rfernand2
     conda: tools
 
+  tricks:
+    url: https://github.com/MSRDL/tricks
+    desc: "our copy of transformer_generalization (devil in the detail paper)"
+    conda: tricks
+
   nupic:
     url: https://github.com/numenta/nupic.research.core
-    desc: Numenta's repo for HTM
+    desc: Numenta's repo for HTM (latest version)
+    conda: htm 
+
+  nupic_legacy:
+    url: https://github.com/numenta/nupic.core-legacy
+    desc: Numenta's repo for HTM (that our HTM is based on)
     conda: htm 
 
   htm:

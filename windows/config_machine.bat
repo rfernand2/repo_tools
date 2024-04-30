@@ -24,8 +24,9 @@ setx CONDA3_DIR %CONDA3_TMP%
 REM add ALIASES macro file (doskey) to start up commands
 reg add "HKCU\Software\Microsoft\Command Processor" /v Autorun /d "doskey /macrofile=\"d:\github\repo_tools\windows\aliases.txt\"" /f
 
-REM DOSKEY macros cannot be called from .bat files so copy rt.bat to a dir in the path
+REM DOSKEY macros cannot be called from .bat files so copy rt.bat and xt.bat to a dir in the path
 call copy %GITHUB_DIR%\repo_tools\windows\rt.bat %CONDA3_DIR%\scripts
+call copy %GITHUB_DIR%\repo_tools\windows\xt.bat %CONDA3_DIR%\scripts
 
 REM create github, .models, .data directories
 mkdir %GITHUB_DIR%

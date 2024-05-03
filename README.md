@@ -20,4 +20,7 @@ On a new or partially configured machine:
         repo
         xt
 
-        
+# TODO
+	- add command to support associating a userid with an RT name; under the covers, it does this:
+		git remote set-url origin https://rfernand2@github.com/MSRDL/TPX-Datasets
+

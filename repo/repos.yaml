@@ -141,7 +141,8 @@ repos:
     url: https://github.com/MSRDL/dtm2
     desc: "Discrete Tree Machine repo (Paul Soulos)"
     account: MSRDL
-    conda: blackboard
+    conda: tpx
+    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/dtm2/xt_config.yaml"}
 
   tree2tree:
     url: https://github.com/MSRDL/tree2tree

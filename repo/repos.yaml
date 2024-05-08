@@ -11,6 +11,11 @@ repos:
     desc: "our copy of transformer_generalization (devil in the detail paper)"
     conda: tricks
 
+  nqg:
+    url: https://github.com/MSRDL/nqg
+    desc: "our copy of the NQG model from googlel (https://github.com/google-research/language)
+    conda: nqg
+
   nupic:
     url: https://github.com/numenta/nupic.research.core
     desc: Numenta's repo for HTM (latest version)

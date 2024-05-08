@@ -13,7 +13,7 @@ repos:
 
   nqg:
     url: https://github.com/MSRDL/nqg
-    desc: "our copy of the NQG model from googlel (https://github.com/google-research/language)"
+    desc: "our copy of the NQG model from google (https://github.com/google-research/language)"
     conda: nqg
 
   nupic:

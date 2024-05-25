@@ -66,7 +66,7 @@ repos:
     url: https://github.com/MSRDL/xlm
     desc: "repo for exploring LLM architectures and how they affect in-context learning"
     account: MSRDL
-    conda: tpx
+    conda: xlm
 
   schat:
     url: https://github.com/rfernand2/SchoolChat

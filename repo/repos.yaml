@@ -6,6 +6,14 @@ repos:
     account: rfernand2
     conda: tools
 
+  llama2.py:
+    url: https://github.com/tairov/llama2.py
+    desc: "Unsure what this is; related to llama2.c but...?"
+
+  llama2.c:
+    url: https://github.com/karpathy/llama2.c
+    desc: "Karpath's implementation of a Llama2 model, trained with the TinyStories dataset"
+
   tricks:
     url: https://github.com/MSRDL/tricks
     desc: "our copy of transformer_generalization (devil in the detail paper)"
@@ -181,3 +189,4 @@ repos:
   xt_gen:
     url: https://github.com/MSRDL/XTGen
     desc: "Command line tool for generating ML training apps with research data sets and models"
+

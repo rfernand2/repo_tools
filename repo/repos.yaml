@@ -75,6 +75,7 @@ repos:
     desc: "repo for exploring LLM architectures and how they affect in-context learning"
     account: MSRDL
     conda: xlm
+    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/xlm/xt_config.yaml"}
 
   schat:
     url: https://github.com/rfernand2/SchoolChat

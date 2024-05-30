@@ -115,7 +115,9 @@ class RepoMgr:
         cmds = []
         call = "call " if "nt" in os.name else ""
         cmds.append("{}conda deactivate".format(call))
-        cmds.append("{}conda activate {}".format(call, conda))
+
+        if conda:
+            cmds.append("{}conda activate {}".format(call, conda))
 
         if "nt" in os.name:
             cmds.append("cd /d " + repo_dir)
@@ -156,20 +158,30 @@ class RepoMgr:
             os.system(clone_cmd)
 
             if "nt" in os.name:
-                fn_create_conda = "{}/create_conda.bat".format(repo_dir)
+                fn_create = "{}/create_conda.bat".format(repo_dir)
+                fn_create_conda = fn_create
             else:
-                fn_create_conda = "source {}/create_conda.sh".format(repo_dir)
+                fn_create = "{}/create_conda.sh".format(repo_dir)
+                fn_create_conda = "source {}".format(fn_create)
 
             cmds = []
             if "nt" in os.name:
                 cmds.append("cd /d " + repo_dir)
             else:
                 cmds.append("cd " + repo_dir)
-            cmds.append(fn_create_conda)
+
+            # try to run create script, if it exists
+            if os.path.exists(fn_create):
+                cmds.append(fn_create_conda)
+
             cmds.append("rt")    # echo newly installed repo
             self.set_commands(cmds)
 
     def set_commands(self, cmds):
+        '''
+        rt.bat will run this generated "repo_commands.bat" file after running this script.  This is 
+        done for conda commands that must be run in a .bat file or .sh script.
+        '''
         ext = "bat" if "nt" in os.name else "sh"
         fn = "{}/repo_commands.{}".format(self.github_dir, ext)
         with open(fn, "w") as f:
@@ -196,10 +208,12 @@ class RepoMgr:
             #print(repo)
 
             for key, entry in self.repos.items():
-                self.update_entry(key, update_size=update_sizes)
+                self.update_entry(key, update_size=False)
                 #print(entry["dir"])
 
-                if repo_name ==entry["dir"]:
+                if repo_name == entry["dir"]:
+                    # optionally update repo and conda sizes
+                    self.update_entry(key, update_size=update_sizes)
                     repo_entry = entry
                     break
 
@@ -235,7 +249,7 @@ class RepoMgr:
             url = url.replace("://", "://" + username + "@")
             #cmd = "git remote set-url origin https://{}@github.com/MSRDL/TPX-Datasets".format(username)
             cmd = "git remote set-url origin {}".format(url)
-            print(cmd)
+            #print(cmd)
             os.system(cmd)
 
         else:
@@ -271,9 +285,17 @@ def command(cmd, cmd2):
 if __name__ == "__main__":
     #print(sys.argv)
 
+    # normal use
     cmd = sys.argv[1] if len(sys.argv) > 1 else ""
     cmd2 = sys.argv[2] if len(sys.argv) > 2 else ""
+    command(cmd, cmd2)
 
-    #command(cmd, cmd2)
-    command("username", "rfernand2")
+    # debug runs
+    #command("username", "rfernand2")
     #command("", "")
+
+    # os.chdir("c:/windows")
+    # command("", "")
+
+    # command("exper", "")
+    # command("xlm", "")

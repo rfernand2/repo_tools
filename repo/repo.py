@@ -179,14 +179,13 @@ class RepoMgr:
             for cmd in cmds:
                 f.write(cmd + "\n")
 
-    def current(self):
+    def get_current_repo_entry(self, update_sizes=False):
         cwd = os.path.abspath(os.getcwd())
         ghd = os.path.abspath(self.github_dir)
+        repo_entry = None
 
         # print("cwd: {}, ghd: {}".format(cwd, ghd))
         # print(self.repos)
-
-        found = False
 
         if cwd.lower().startswith(ghd.lower()):
             repo_name = cwd[len(ghd)+1:]
@@ -197,16 +196,21 @@ class RepoMgr:
             #print(repo)
 
             for key, entry in self.repos.items():
-                self.update_entry(key, update_size=False)
+                self.update_entry(key, update_size=update_sizes)
                 #print(entry["dir"])
 
                 if repo_name ==entry["dir"]:
-                    self.update_entry(key, update_size=True)
-                    self.print_items([entry], show_sizes=True)
-                    found = True
+                    repo_entry = entry
                     break
 
-        if not found:
+        return repo_entry
+
+    def current(self):
+        repo_entry = self.get_current_repo_entry(update_sizes=True)
+        if repo_entry:
+            self.print_items([repo_entry], show_sizes=True)
+
+        else:
             print("not currently in a known repo")
 
     def help(self):
@@ -216,9 +220,26 @@ class RepoMgr:
         print("  repo install <name>   (install the specified repo)")
         print("  repo list [filter]    (show info about all/matching repos)")
         print("  repo sizes [filter]   (show sizes of all/matching repos)")
+        print("  repo username <name>  (associate the specified Github username with this repo) ")
         print("  repo help             (show this help information)")
         print("  repo <name>           (shortcut for go <name>)")
 
+    def associate_username(self, username):
+        if not username:
+            print("username is required")
+            return
+
+        repo_entry = self.get_current_repo_entry()
+        if repo_entry:
+            url = repo_entry["url"]
+            url = url.replace("://", "://" + username + "@")
+            #cmd = "git remote set-url origin https://{}@github.com/MSRDL/TPX-Datasets".format(username)
+            cmd = "git remote set-url origin {}".format(url)
+            print(cmd)
+            os.system(cmd)
+
+        else:
+            print("not currently in a known repo")
 
 def command(cmd, cmd2):
 
@@ -236,6 +257,9 @@ def command(cmd, cmd2):
     elif cmd == "install":
         repo_mgr.install_repo(cmd2)
 
+    elif cmd == "username":
+        repo_mgr.associate_username(cmd2)
+
     elif cmd == "help":
         repo_mgr.help()
 
@@ -250,5 +274,6 @@ if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else ""
     cmd2 = sys.argv[2] if len(sys.argv) > 2 else ""
 
-    command(cmd, cmd2)
-    #command("install", "soca")
+    #command(cmd, cmd2)
+    command("username", "rfernand2")
+    #command("", "")

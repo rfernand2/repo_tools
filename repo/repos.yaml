@@ -62,7 +62,8 @@ repos:
     account: MSRDL
     branch: dilbert
     dir: xt_dilbert
-    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/xt_dilbert/cmdLineTest/xt_config.yaml"}
+    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/xt_dilbert/cmdLineTest/xt_config.yaml", "PYTHONPATH": "$GITHUB_DIR/xt_dilbert"}
+   
 
   tpd:
     url: https://github.com/MSRDL/TPX-Datasets

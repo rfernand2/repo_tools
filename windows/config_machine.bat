@@ -1,5 +1,6 @@
 REM define permanent environment variables
-setx HOME d:      
+setx HOME d: 
+setx DATAROOT d:\.data
 setx GITHUB_DIR d:\github
 setx PYTHONPATH d:\github\xt_dilbert
 

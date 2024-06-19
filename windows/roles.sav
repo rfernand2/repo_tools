@@ -1,0 +1,12 @@
+[
+  {
+    "role": "Data Scientist MSR",
+    "scope": "/subscriptions/22da88f6-1210-4de2-a5a3-da4c7c2a1213/resourceGroups/gcr-singularity-resrch/providers/Microsoft.MachineLearningServices/virtualClusters/msrresrchvc",
+    "scope_name": "msrresrchvc"
+  },
+  {
+    "role": "Owner",
+    "scope": "/subscriptions/41c6e824-0f66-4076-81dd-f751c70a140b",
+    "scope_name": "rfernand-ML_research_and_tools"
+  }
+]

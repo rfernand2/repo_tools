@@ -24,3 +24,6 @@ On a new or partially configured machine:
 	- add command to support associating a userid with an RT name; under the covers, it does this:
 		git remote set-url origin https://rfernand2@github.com/MSRDL/TPX-Datasets
 
+Also, you can download the az-pim_windows.exe tool (needed for the elevate command) from: 
+	https://github.com/demoray/azure-pim-cli/releases
+

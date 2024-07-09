@@ -49,6 +49,7 @@ repos:
     url: https://github.com/echen/restricted-boltzmann-machines
     desc: "simple restricted-boltzmann machine framework"
     conda: tpx
+    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/TPX-Transformer/xt_config.yaml"}
 
   tpx:
     url: https://github.com/MSRDL/TPX-Transformer
@@ -70,6 +71,7 @@ repos:
     desc: "imported and custom datasets for TP-related projects"
     account: MSRDL
     conda: tpx
+    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/TPX-Transformer/xt_config.yaml"}
 
   xlm: 
     url: https://github.com/MSRDL/xlm

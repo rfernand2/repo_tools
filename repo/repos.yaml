@@ -71,6 +71,12 @@ repos:
     account: MSRDL
     conda: tpx
 
+  tpd:
+    url: https://github.com/MSRDL/icl
+    desc: "repo for ICL paper, containing compiler, DAT transformer, and DAT Explorer"
+    account: MSRDL
+    conda: tpx
+
   xlm: 
     url: https://github.com/MSRDL/xlm
     desc: "repo for exploring LLM architectures and how they affect in-context learning"

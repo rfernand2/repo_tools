@@ -124,6 +124,7 @@ class RepoMgr:
             if "env_vars" in repo:
                 for var, value in repo["env_vars"].items():
                     value = os.path.expandvars(value)
+                    value = os.path.abspath(value)        # fix slashes
                     cmds.append("set " + var + "=" + value)
         else:
             cmds.append("cd " + repo_dir)

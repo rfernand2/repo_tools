@@ -77,7 +77,7 @@ repos:
     url: https://github.com/MSRDL/icl
     desc: "repo for ICL paper, containing compiler, DAT transformer, and DAT Explorer"
     account: MSRDL
-    conda: tpx
+    conda: icl
     env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/TPX-Transformer/xt_config.yaml"}
 
   xlm: 

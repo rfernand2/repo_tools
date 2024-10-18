@@ -24,7 +24,17 @@ repos:
     desc: "our copy of the NQG model from google (https://github.com/google-research/language)"
     conda: nqg
 
+  rps:
+    url: https://github.com/mopper97/rps
+    desc: "Mattia Oper's code for recursive function call work; summer 2024"
+    conda: icl
+
   nupic:
+    url: https://github.com/MSRDL/nupic
+    desc: our copy of nupic_research
+    conda: htm 
+
+  nupic_research:
     url: https://github.com/numenta/nupic.research.core
     desc: Numenta's repo for HTM (latest version)
     conda: htm 

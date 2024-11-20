@@ -24,6 +24,11 @@ repos:
     desc: "our copy of the NQG model from google (https://github.com/google-research/language)"
     conda: nqg
 
+  ncx:
+    url: https://github.com/MSRDL/ncx
+    desc: "neurocompositonal team's repo for training models (replaces TPX-Transformer)"
+    conda: ncx
+
   rps:
     url: https://github.com/mopper97/rps
     desc: "Mattia Oper's code for recursive function call work; summer 2024"

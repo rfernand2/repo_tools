@@ -28,6 +28,7 @@ repos:
     url: https://github.com/MSRDL/ncx
     desc: "neurocompositonal team's repo for training models (replaces TPX-Transformer)"
     conda: ncx
+    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/ncx/xt_config.yaml"}
 
   rps:
     url: https://github.com/mopper97/rps

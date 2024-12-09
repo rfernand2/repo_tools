@@ -4,6 +4,6 @@ tools=cd /d %GITHUB_DIR%\repo_tools
 .models=cd /d %HOME%/.models
 .xt=cd /d %USERPROFILE%/.xt
 n=notepad $*
-push=git add . && git commit -m %1 && git push
+push=git add . && git commit -m $* && git push
 repo=%CONDA3_DIR%\python %GITHUB_DIR%\repo_tools\repo\repo.py $* && call %GITHUB_DIR%\repo_commands.bat
 rt=%CONDA3_DIR%\python %GITHUB_DIR%\repo_tools\repo\repo.py $* && call %GITHUB_DIR%\repo_commands.bat

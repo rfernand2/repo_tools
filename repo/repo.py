@@ -171,11 +171,12 @@ class RepoMgr:
             else:
                 cmds.append("cd " + repo_dir)
 
-            # try to run create script, if it exists
-            if os.path.exists(fn_create):
-                cmds.append(fn_create_conda)
+            # # try to run create script, if it exists
+            # if os.path.exists(fn_create):
+            #     cmds.append(fn_create_conda)
 
-            cmds.append("rt")    # echo newly installed repo
+            # run cmd to activate conda environment
+            cmds.append(f"rt {cmd}")    # echo newly installed repo
             self.set_commands(cmds)
 
     def set_commands(self, cmds):

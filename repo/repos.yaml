@@ -19,6 +19,11 @@ repos:
     desc: "our copy of transformer_generalization (devil in the detail paper)"
     conda: tricks
 
+  vlab:
+    url: https://github.com/MSRDL/vlab
+    desc: "our copy of the virtual lab repo (for research agents)"
+    conda: vlab
+
   nqg:
     url: https://github.com/MSRDL/nqg
     desc: "our copy of the NQG model from google (https://github.com/google-research/language)"

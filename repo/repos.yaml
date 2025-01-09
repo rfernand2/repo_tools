@@ -99,7 +99,14 @@ repos:
     desc: "repo for ICL paper, containing compiler, DAT transformer, and DAT Explorer"
     account: MSRDL
     conda: icl
-    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/TPX-Transformer/xt_config.yaml"}
+    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/icl/xt_config.yaml"}
+
+  dat:
+    url: https://github.com/MSRDL/discrete_attn_transformer
+    desc: "our public version of icl repo"
+    account: MSRDL
+    conda: icl
+    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/dat/xt_config.yaml"}
 
   cha:
     url: https://github.com/MSRDL/cha

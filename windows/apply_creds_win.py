@@ -9,7 +9,7 @@ with open(fn, "rt", encoding="utf-8") as f:
     data = yaml.safe_load(f)
 
 # write permanent env vars
-for name in ["wandb_api_key", "tpx_sql_pw", "openai_api_key", "azure_openai_api_key", "anthropic_api_key", "groq_api_key", "google_api_key", "together_api_key", "hyperbolic_api_key", "xai_api_key"]:
+for name in ["wandb_api_key", "tpx_sql_pw", "openai_api_key", "azure_openai_api_key", "anthropic_api_key", "groq_api_key", "google_api_key", "together_api_key", "hyperbolic_api_key", "huggingface_api_token", "xai_api_key"]:
     value = data[name]["value"]
     cmd = f"setx {name.upper()} {value}"
     print("running cmd:", cmd)

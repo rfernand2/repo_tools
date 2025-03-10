@@ -41,6 +41,11 @@ repos:
     conda: cgl
     env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/cgl/xt_config.yaml"}
 
+  goose:
+    url: https://github.com/MSRDL/goose
+    desc: "Copy of RWKV-LM repo for training Goose One - first .2B reasoning model"
+    conda: goose
+
   rps:
     url: https://github.com/mopper97/rps
     desc: "Mattia Oper's code for recursive function call work; summer 2024"

@@ -29,6 +29,11 @@ repos:
     desc: "our copy of the NQG model from google (https://github.com/google-research/language)"
     conda: nqg
 
+  diego:
+    url: https://github.com/rfernand2/diego
+    desc: "life coach prototype for iphone/andriod"
+    conda: diego
+
   ncx:
     url: https://github.com/MSRDL/ncx
     desc: "neurocompositonal team's repo for training models (replaces TPX-Transformer)"

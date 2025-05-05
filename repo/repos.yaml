@@ -40,6 +40,12 @@ repos:
     conda: ncx
     env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/ncx/xt_config.yaml"}
 
+  sketchy:
+    url: https://github.com/MSRDL/sketchy
+    desc: "Exploration of visual feedback for VLM models that create images or draw on canvas"
+    conda: sketchy
+    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/ncx/xt_config.yaml"}
+
   cgl:
     url: https://github.com/MSRDL/cgl
     desc: "Cognitive Modeling for LLMs"

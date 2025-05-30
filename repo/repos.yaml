@@ -24,6 +24,11 @@ repos:
     desc: "our copy of the virtual lab repo (for research agents)"
     conda: vlab
 
+  arc2:
+    url: https://github.com/MSRDL/arc2
+    desc: "experimental agents and post-trained models for tackling the ARC-AGI-2 challenge"
+    conda: arc2
+
   nqg:
     url: https://github.com/MSRDL/nqg
     desc: "our copy of the NQG model from google (https://github.com/google-research/language)"

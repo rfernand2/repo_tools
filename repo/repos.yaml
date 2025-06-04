@@ -29,6 +29,10 @@ repos:
     desc: "experimental agents and post-trained models for tackling the ARC-AGI-2 challenge"
     conda: arc2
 
+  rust:
+    url: https://github.com/celbree/Verus_Copilot
+    desc: "repo used for rust-proof project (Shuai Lu, Xiaodong Liu"
+
   nqg:
     url: https://github.com/MSRDL/nqg
     desc: "our copy of the NQG model from google (https://github.com/google-research/language)"

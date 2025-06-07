@@ -31,7 +31,9 @@ repos:
 
   rust:
     url: https://github.com/celbree/Verus_Copilot
-    desc: "repo used for rust-proof project (Shuai Lu, Xiaodong Liu"
+    branch: roland
+    dir: Verus_Copilot_Roland
+    desc: "the 'roland' branch of repo used for rust-proof project (Shuai Lu, Xiaodong Liu)"
     conda: rust
 
   nqg:

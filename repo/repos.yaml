@@ -29,6 +29,11 @@ repos:
     desc: "experimental agents and post-trained models for tackling the ARC-AGI-2 challenge"
     conda: arc2
 
+  books:
+    url: https://github.com/rfernand2/books
+    desc: "tools for writing book chapters"
+    conda: books
+
   rust:
     url: https://github.com/celbree/Verus_Copilot
     branch: roland

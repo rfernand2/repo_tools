@@ -41,6 +41,14 @@ repos:
     desc: "the 'roland' branch of repo used for rust-proof project (Shuai Lu, Xiaodong Liu)"
     conda: rust
 
+  exper:
+    url: https://github.com/MSRDL/ExperimentTools
+    desc: "source code for XT"
+    account: MSRDL
+    branch: dilbert
+    dir: xt_dilbert
+    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/xt_dilbert/cmdLineTest/xt_config.yaml", "PYTHONPATH": "$GITHUB_DIR/xt_dilbert"}
+
   nqg:
     url: https://github.com/MSRDL/nqg
     desc: "our copy of the NQG model from google (https://github.com/google-research/language)"
@@ -116,15 +124,6 @@ repos:
     desc: "main training and model repo for TP-related projects"
     account: MSRDL
     env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/TPX-Transformer/xt_config.yaml"}
-
-  exper:
-    url: https://github.com/MSRDL/ExperimentTools
-    desc: "source code for XT"
-    account: MSRDL
-    branch: dilbert
-    dir: xt_dilbert
-    env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/xt_dilbert/cmdLineTest/xt_config.yaml", "PYTHONPATH": "$GITHUB_DIR/xt_dilbert"}
-   
 
   tpd:
     url: https://github.com/MSRDL/TPX-Datasets

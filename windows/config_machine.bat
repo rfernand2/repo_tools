@@ -1,29 +1,38 @@
-REM define permanent environment variables
-setx HOME d: 
-setx DATAROOT d:\.data
-setx GITHUB_DIR d:\github
-setx PYTHONPATH d:\github\xt_dilbert
-
-REM try to find existing conda3 installation
-set CONDA3_TMP=C:\Users\%USERNAME%\AppData\Local\anaconda3
-
-if not exist %CONDA3_TMP%\ (
-    set CONDA3_TMP=%HOME%\Users\%USERNAME%\AppData\Local\anaconda3
+REM sesion-only environment variables
+if exist D:\ (
+    set HOME=D:
+) else (
+    set HOME=%HOME%
 )
 
+REM try to find existing conda3 installation
+set CONDA3_DIR=%HOME%\Users\%USERNAME%\AppData\Local\anaconda3
+
+REM define permanent environment variables
+setx HOME %HOME% 
+setx DATAROOT %HOME%\.data
+setx GITHUB_DIR %HOME%\github
+setx PYTHONPATH %HOME%\github\xt_dilbert
+
 REM install mini-conda, if needed
-if not exist %CONDA3_TMP%\ (
+if not exist %CONDA3_DIR%\ (
   REM curl not download file correctly; need to fix...
-  echo installing mini-conda...
+  ECHO downloading mini-conda...
   curl -L https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe -o %TEMP%\miniconda.exe
-  %TEMP%\miniconda.exe /S /AddToPath=1 /D=%CONDA3_TMP%
+  ECHO installing mini-conda
+  rd /s /q %CONDA3_DIR%
+  %TEMP%\miniconda.exe /InstallationType=JustMe /RegisterPython=0 /S /AddToPath=1 /D=%CONDA3_DIR%      
+  
 )
 
 REM set CONDA3_DIR
-setx CONDA3_DIR %CONDA3_TMP%
+setx CONDA3_DIR %CONDA3_DIR%
+
+REM ensure yaml is installed 
+pip install pyyaml
 
 REM add ALIASES macro file (doskey) to start up commands
-reg add "HKCU\Software\Microsoft\Command Processor" /v Autorun /d "doskey /macrofile=\"d:\github\repo_tools\windows\aliases.txt\"" /f
+reg add "HKCU\Software\Microsoft\Command Processor" /v Autorun /d "doskey /macrofile=\"%HOME%\github\repo_tools\windows\aliases.txt\"" /f
 
 REM DOSKEY macros cannot be called from .bat files so copy rt.bat to a dir in the path
 call copy %GITHUB_DIR%\repo_tools\windows\rt.bat %CONDA3_DIR%\scripts

@@ -29,6 +29,11 @@ repos:
     desc: "experimental agents and post-trained models for tackling the ARC-AGI-2 challenge"
     conda: arc2
 
+  showdown:
+    url: https://github.com/MSRDL/tpr_showdown
+    desc: "experiments the determine capacity and robustness of TPR related models and subspace learning NNs"
+    conda: showdown
+
   books:
     url: https://github.com/rfernand2/books
     desc: "tools for writing book chapters"

@@ -34,9 +34,14 @@ repos:
     desc: "experiments the determine capacity and robustness of TPR related models and subspace learning NNs"
     conda: showdown
 
-  books:
-    url: https://github.com/rfernand2/books
-    desc: "tools for writing book chapters"
+  franklin:
+    url: https://github.com/rfernand2/franklin_book
+    desc: "ben franklin book: content and tools"
+    conda: books
+
+  washington:
+    url: https://github.com/rfernand2/washington_book
+    desc: "george washington book: content and tools"
     conda: books
 
   rust:

@@ -34,6 +34,11 @@ repos:
     desc: "experiments the determine capacity and robustness of TPR related models and subspace learning NNs"
     conda: showdown
 
+  storybook:
+    url: https://github.com/rfernand2/storybook
+    desc: "Roland's storybook player for book and animation/anime projects"
+    conda: books
+
   franklin:
     url: https://github.com/rfernand2/franklin_book
     desc: "ben franklin book: content and tools"

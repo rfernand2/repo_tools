@@ -80,7 +80,7 @@ repos:
     conda: ncx
     env_vars: {"XT_GLOBAL_CONFIG": "$GITHUB_DIR/ncx/xt_config.yaml"}
 
-  rr:
+  residual:
     url: https://github.com/MSRDL/residual_registers
     desc: Mattia's own version of NCX (for igga/TRA/HRM/TPM type experiments)
     conda: ncx

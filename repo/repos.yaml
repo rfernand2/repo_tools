@@ -49,6 +49,11 @@ repos:
     desc: "george washington book: content and tools"
     conda: books
 
+  knowledge:
+    url: https://github.com/rfernand2/knowledge_books
+    desc: "a series of 100-1000 books about development of human knowledge"
+    conda: books
+
   rust:
     url: https://github.com/celbree/Verus_Copilot
     branch: roland

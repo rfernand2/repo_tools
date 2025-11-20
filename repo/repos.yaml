@@ -6,6 +6,11 @@ repos:
     account: rfernand2
     conda: tools
 
+  sims:
+    url: https://github.com/rfernand2/sims_ai
+    desc: "A Sims-like game to help users develop AI skills"
+    conda: ncx
+
   llama2.py:
     url: https://github.com/tairov/llama2.py
     desc: "Unsure what this is; related to llama2.c but...?"

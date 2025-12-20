@@ -44,6 +44,11 @@ repos:
     desc: "Roland's storybook player for book and animation/anime projects"
     conda: books
 
+  studio:
+    url: https://github.com/rfernand2/studio
+    desc: "Roland Studio: storytelling studio."
+    conda: studio
+
   franklin:
     url: https://github.com/rfernand2/franklin_book
     desc: "ben franklin book: content and tools"

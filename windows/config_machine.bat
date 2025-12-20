@@ -1,6 +1,6 @@
 REM sesion-only environment variables
-if exist D:\ (
-    set HOME=D:
+if exist C:\ (
+    set HOME=C:
 ) else (
     set HOME=%HOME%
 )

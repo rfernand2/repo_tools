@@ -49,6 +49,11 @@ repos:
     desc: "Roland Studio: storytelling studio."
     conda: studio
 
+  writing_game:
+    url: https://github.com/rfernand2/writing_game
+    desc: "Simple writing exercises as a game"
+    conda: studio
+
   franklin:
     url: https://github.com/rfernand2/franklin_book
     desc: "ben franklin book: content and tools"

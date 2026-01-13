@@ -30,7 +30,7 @@ repos:
     conda: vlab
 
   retirement:
-    url: https://github.com/MSRDL/retirement
+    url: https://github.com/rfernand2/retirement
     desc: "Monte Carlo simulator to evaluate various retirement sceanios"
     conda: studio
 

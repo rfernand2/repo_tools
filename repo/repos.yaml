@@ -32,7 +32,7 @@ repos:
   retirement:
     url: https://github.com/MSRDL/retirement
     desc: "Monte Carlo simulator to evaluate various retirement sceanios"
-    conda: ncx
+    conda: studio
 
   arc2:
     url: https://github.com/MSRDL/arc2

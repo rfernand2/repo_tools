@@ -29,6 +29,11 @@ repos:
     desc: "our copy of the virtual lab repo (for research agents)"
     conda: vlab
 
+  retirement:
+    url: https://github.com/MSRDL/retirement
+    desc: "Monte Carlo simulator to evaluate various retirement sceanios"
+    conda: ncx
+
   arc2:
     url: https://github.com/MSRDL/arc2
     desc: "experimental agents and post-trained models for tackling the ARC-AGI-2 challenge"

@@ -64,6 +64,11 @@ repos:
     desc: "V2 - AI designed: simple writing exercises as a game"
     conda: studio
 
+  sessions4:
+    url: https://github.com/rfernand2/sessions4
+    desc: "V4 - AI designed: simple writing exercises as a game"
+    conda: sessions
+
   franklin:
     url: https://github.com/rfernand2/franklin_book
     desc: "ben franklin book: content and tools"

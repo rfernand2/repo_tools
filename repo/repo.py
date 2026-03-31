@@ -124,8 +124,16 @@ class RepoMgr:
             if "env_vars" in repo:
                 for var, value in repo["env_vars"].items():
                     value = os.path.expandvars(value)
-                    value = os.path.abspath(value)        # fix slashes
-                    cmds.append("set " + var + "=" + value)
+                    if os.path.isfile(value):
+                        # read env vars from file (key=value lines, ignoring blanks and comments)
+                        with open(value, "r") as f:
+                            for line in f:
+                                line = line.strip()
+                                if line and not line.startswith("#"):
+                                    cmds.append("set " + line)
+                    else:
+                        value = os.path.abspath(value)        # fix slashes
+                        cmds.append("set " + var + "=" + value)
         else:
             cmds.append("cd " + repo_dir)
 

@@ -122,16 +122,18 @@ class RepoMgr:
         if "nt" in os.name:
             cmds.append("cd /d " + repo_dir)
             if "env_vars" in repo:
-                for var, value in repo["env_vars"].items():
-                    value = os.path.expandvars(value)
-                    if os.path.isfile(value):
-                        # read env vars from file (key=value lines, ignoring blanks and comments)
-                        with open(value, "r") as f:
-                            for line in f:
-                                line = line.strip()
-                                if line and not line.startswith("#"):
-                                    cmds.append("set " + line)
-                    else:
+                env_vars = repo["env_vars"]
+                if isinstance(env_vars, str):
+                    # filename: read env vars from file (key=value lines, ignoring blanks and comments)
+                    fn = os.path.expandvars(env_vars)
+                    with open(fn, "r") as f:
+                        for line in f:
+                            line = line.strip()
+                            if line and not line.startswith("#"):
+                                cmds.append("set " + line)
+                else:
+                    for var, value in env_vars.items():
+                        value = os.path.expandvars(value)
                         value = os.path.abspath(value)        # fix slashes
                         cmds.append("set " + var + "=" + value)
         else:

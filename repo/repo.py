@@ -116,7 +116,7 @@ class RepoMgr:
         call = "call " if "nt" in os.name else ""
         cmds.append("{}conda deactivate".format(call))
 
-        if conda:
+        if conda and conda != "none":
             cmds.append("{}conda activate {}".format(call, conda))
 
         if "nt" in os.name:

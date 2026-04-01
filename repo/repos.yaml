@@ -74,7 +74,7 @@ repos:
     url: https://github.com/rfernand2/dreamzone3
     desc: "v3 of dreamzone.app, created by claude code"
     env_vars: c:\rlf\my_apps\dreamzone3.keys
-    conda: none
+    conda: dreamzone
 
   franklin:
     url: https://github.com/rfernand2/franklin_book

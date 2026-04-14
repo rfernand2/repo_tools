@@ -76,6 +76,12 @@ repos:
     env_vars: c:\rlf\my_apps\dreamzone3.keys
     conda: dreamzone
 
+  builder2:
+    url: https://github.com/rfernand2/builder2
+    desc: "v2 of builder app (for buiding apps from a single description). Created by Roland and Claude Code"
+    env_vars: c:\rlf\my_apps\builder2.keys
+    conda: builder
+
   franklin:
     url: https://github.com/rfernand2/franklin_book
     desc: "ben franklin book: content and tools"

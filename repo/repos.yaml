@@ -82,6 +82,17 @@ repos:
     env_vars: c:\rlf\my_apps\builder2.keys
     conda: builder
 
+  builder_gui:
+    url: https://github.com/rfernand2/builder_gui
+    desc: "v3 of builder app, where we monitor all progress thru a web page"
+    env_vars: c:\rlf\my_apps\builder2.keys
+    conda: builder
+
+  quill:
+    url: https://github.com/rfernand2/quill
+    desc: "AI and Data-centric Office apps in Excel"
+    conda: builder
+
   franklin:
     url: https://github.com/rfernand2/franklin_book
     desc: "ben franklin book: content and tools"

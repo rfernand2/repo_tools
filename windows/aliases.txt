@@ -1,4 +1,4 @@
-gh=cd /d %GITHUB_DIR%
+ggh=cd /d %GITHUB_DIR%
 tools=cd /d %GITHUB_DIR%\repo_tools
 .data=cd /d %HOME%/.data
 .models=cd /d %HOME%/.models

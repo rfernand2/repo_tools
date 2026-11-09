@@ -2,6 +2,7 @@ ggh=cd /d %GITHUB_DIR%
 ggb=cd /d %GITHUB_DIR%\books
 tools=cd /d %GITHUB_DIR%\repo_tools
 scan=python %GITHUB_DIR%\book_tools\ai_marker_scanners\score_ai_markers.py $*
+review=python %GITHUB_DIR%\book_tools\review_text.py $*
 .data=cd /d %HOME%/.data
 .models=cd /d %HOME%/.models
 .xt=cd /d %USERPROFILE%/.xt

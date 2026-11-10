@@ -1,9 +1,12 @@
 ggh=cd /d %GITHUB_DIR%
+ggb=cd /d %GITHUB_DIR%\books
 tools=cd /d %GITHUB_DIR%\repo_tools
+scan=python %GITHUB_DIR%\book_tools\ai_marker_scanners\score_ai_markers.py $*
+review=python %GITHUB_DIR%\book_tools\review_text.py $*
 .data=cd /d %HOME%/.data
 .models=cd /d %HOME%/.models
 .xt=cd /d %USERPROFILE%/.xt
 n=notepad $*
-push=git add . && git commit -m $* && git push
+push=git.exe add . && git.exe commit -m $* && git.exe push
 repo=%CONDA3_DIR%\python %GITHUB_DIR%\repo_tools\repo\repo.py $* && call %GITHUB_DIR%\repo_commands.bat
 rt=%CONDA3_DIR%\python %GITHUB_DIR%\repo_tools\repo\repo.py $* && call %GITHUB_DIR%\repo_commands.bat
